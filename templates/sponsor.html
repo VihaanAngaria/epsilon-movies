@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Epsilon</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        #continue {
+            display: none;
+        }
+        #timer {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #ccc;
+        }
+        #skip {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #888;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        let timeLeft = 10;
+        function startCountdown() {
+            const timer = document.getElementById("timer");
+            const interval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timer.textContent = `Please wait ${timeLeft} second(s)...`;
+                    timeLeft--;
+                } else {
+                    clearInterval(interval);
+                    timer.textContent = "You're ready to continue!";
+                    document.getElementById("continue").style.display = "inline-block";
+                }
+            }, 1000);
+        }
+
+        function skipWait() {
+            document.getElementById("continue").style.display = "inline-block";
+            document.getElementById("timer").textContent = "Skipped waiting.";
+        }
+
+        window.onload = startCountdown;
+    </script>
+</head>
+<body>
+    <h1>Support Epsilon Movies</h1>
+    <p>Click any sponsor link below. After a short wait, you'll continue to the app.</p>
+
+    <a href="https://shotify.io/link1" target="_blank" class="button">Sponsor 1</a>
+    <a href="https://shotify.io/link2" target="_blank" class="button">Sponsor 2</a>
+
+    <div id="timer">Please wait...</div>
+
+<a id="continue" href="/watch/continue" class="button">Continue to Epsilon Movies</a>
+
+    <div id="skip" onclick="skipWait()">Skip waiting</div>
+</body>
+</html>
