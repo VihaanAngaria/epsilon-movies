@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Epsilon Movies</title>
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ff1e56;
+        }
+
+        .btn-watch {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff1e56;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-watch:hover {
+            background-color: #e6003f;
+        }
+    </style>
 </head>
-<body style="text-align: center; background-color: #000; color: white;">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Movies">
+<body>
     <h1>Welcome to Epsilon Movies</h1>
-    <a href="/watch" style="font-size: 20px; color: red;">Watch Content</a>
+    <a href="/watch" class="btn-watch">Watch Now</a>
 </body>
 </html>
