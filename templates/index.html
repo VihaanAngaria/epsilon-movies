@@ -2,81 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Epsilon Movies</title>
     <style>
+        /* Gradient Background Animation */
+        @keyframes gradientBG {
+            0% {
+                background: linear-gradient(45deg, #ff1e56, #ff8c00);
+            }
+            25% {
+                background: linear-gradient(45deg, #ff8c00, #1e56ff);
+            }
+            50% {
+                background: linear-gradient(45deg, #1e56ff, #56ff1e);
+            }
+            75% {
+                background: linear-gradient(45deg, #56ff1e, #ff1e56);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff1e56, #ff8c00);
+            }
+        }
+
+        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', sans-serif;
-            background-color: #000;
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            background: linear-gradient(45deg, #ff1e56, #ff8c00);
+            animation: gradientBG 10s ease infinite;
+            transition: background 2s;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
+        /* Text Animation */
         h1 {
-            font-size: 3em;
+            font-size: 4em;
             margin-bottom: 20px;
-            color: #ff1e56;
-            opacity: 0;
-            animation: fadeUp 1.5s forwards 0.5s;
+            background: linear-gradient(45deg, #ff1e56, #56ff1e);
+            background-clip: text;
+            color: transparent;
+            animation: colorShift 3s ease-in-out infinite;
+            text-align: center;
+            text-transform: uppercase;
         }
 
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Color changing effect for text */
+        @keyframes colorShift {
+            0% { background: linear-gradient(45deg, #ff1e56, #ff8c00); }
+            25% { background: linear-gradient(45deg, #ff8c00, #1e56ff); }
+            50% { background: linear-gradient(45deg, #1e56ff, #56ff1e); }
+            75% { background: linear-gradient(45deg, #56ff1e, #ff1e56); }
+            100% { background: linear-gradient(45deg, #ff1e56, #ff8c00); }
         }
 
+        /* Button Styling and Animation */
         .btn-watch {
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 20px 40px;
+            font-size: 1.5em;
             color: white;
             background-color: #ff1e56;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
             text-decoration: none;
-            opacity: 0;
-            animation: fadeUp 1.5s forwards 1s;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            transform: scale(1);
         }
 
         .btn-watch:hover {
             background-color: #e6003f;
             transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Logo Fade and Rotate */
         img {
-            width: 150px;
+            width: 200px;
             margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeUp 1.5s forwards 0.5s;
+            animation: fadeRotate 3s ease-in-out infinite;
         }
+
+        @keyframes fadeRotate {
+            0% {
+                opacity: 0;
+                transform: rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: rotate(360deg);
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(720deg);
+            }
+        }
+
+        /* Add some slight floating effect */
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- Logo Image -->
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo">
+    <!-- Logo Image with Floating Effect -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="floating">
 
     <h1>Welcome to Epsilon Movies</h1>
     <a href="/watch" class="btn-watch">Watch Now</a>
