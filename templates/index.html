@@ -1,121 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Epsilon Movies</title>
-  <style>
-    /* Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <title>Epsilon Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #0d0d0d;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Animated Gradient Background */
-    body::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, #ff1e56, #1e90ff, #ff1e56, #1e90ff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      z-index: -1;
-      opacity: 0.2;
-    }
+        .background-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, #ff004f33, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #00ffe533, transparent 40%);
+            animation: pulse 5s infinite alternate;
+            z-index: 0;
+        }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
 
-    /* Logo */
-    .logo {
-      width: 150px;
-      margin-bottom: 30px;
-      animation: float 4s ease-in-out infinite;
-    }
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px #ff004f);
+        }
 
-    /* Heading */
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #ff1e56, #1e90ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textGlow 2s ease-in-out infinite alternate;
-    }
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0 0 15px #ff004f, 0 0 30px #00ffe5;
+            margin-bottom: 30px;
+        }
 
-    @keyframes textGlow {
-      from { text-shadow: 0 0 10px #ff1e56; }
-      to { text-shadow: 0 0 20px #1e90ff; }
-    }
+        .btn-watch {
+            padding: 15px 35px;
+            font-size: 1.2em;
+            color: #0f0f0f;
+            background: linear-gradient(45deg, #00ffe5, #ff004f);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* Watch Button */
-    .btn-watch {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: #fff;
-      background-color: #ff1e56;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px #ff1e56;
-    }
-
-    .btn-watch:hover {
-      background-color: #1e90ff;
-      box-shadow: 0 0 20px #1e90ff;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-        text-align: center;
-        padding: 0 20px;
-      }
-
-      .btn-watch {
-        padding: 12px 24px;
-        font-size: 1em;
-      }
-    }
-  </style>
+        .btn-watch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff004f, 0 0 20px #00ffe5;
+        }
+    </style>
 </head>
 <body>
-  <!-- Logo -->
-  <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo" />
-
-  <!-- Heading -->
-  <h1>Welcome to Epsilon Movies</h1>
-
-  <!-- Watch Button -->
-  <a href="/watch" class="btn-watch">Watch Now</a>
+    <div class="background-glow"></div>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo">
+        <h1>Welcome to Epsilon Movies</h1>
+        <a href="/watch" class="btn-watch">Watch Now</a>
+    </div>
 </body>
 </html>
