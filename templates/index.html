@@ -3,122 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Epsilon Movies</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #000;
             color: #fff;
-        }
-
-        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        .logo {
-            height: 80px;
-            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 2.8em;
-            margin: 10px 0 30px;
-            color: #ff1e56;
-            letter-spacing: 2px;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #f7b500; /* Dark yellow color */
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
         }
 
         .btn-watch {
-            background-color: #ff1e56;
+            padding: 15px 30px;
+            font-size: 1.2em;
             color: white;
-            padding: 14px 30px;
-            font-size: 1.1em;
+            background-color: #f7b500; /* Dark yellow */
             border: none;
-            border-radius: 6px;
-            text-decoration: none;
+            border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
+            text-decoration: none;
         }
 
         .btn-watch:hover {
-            background-color: #e6003f;
+            background-color: #e6a100; /* Darker yellow */
         }
 
-        .section {
-            margin-top: 50px;
+        .about-movies {
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: #fff;
+            line-height: 1.5;
+            max-width: 80%;
+            margin-bottom: 30px;
         }
 
-        .section h2 {
-            margin-bottom: 20px;
-            color: #f5f5f5;
-            font-size: 1.8em;
-        }
-
-        .movie-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .movie-card {
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 150px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .movie-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px #ff1e56;
-        }
-
-        .movie-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .movie-card p {
-            margin: 10px 0;
-            color: #ccc;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .movie-card {
-                width: 120px;
-            }
+        .about-movies h2 {
+            color: #f7b500; /* Dark yellow */
+            font-size: 2em;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo">
-        <h1>Welcome to Epsilon Movies</h1>
-        <a href="/watch" class="btn-watch">Watch Now</a>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo">
 
-        <div class="section">
-            <h2>Trending Now</h2>
-            <div class="movie-grid">
-                <div class="movie-card">
-                    <img src="https://picsum.photos/150/220?random=10" alt="Dark Future">
-                    <p>Dark Future</p>
-                </div>
-                <div class="movie-card">
-                    <img src="https://picsum.photos/150/220?random=11" alt="Neon Streets">
-                    <p>Neon Streets</p>
-                </div>
-                <div class="movie-card">
-                    <img src="https://picsum.photos/150/220?random=12" alt="Quantum Heist">
-                    <p>Quantum Heist</p>
-                </div>
-            </div>
-        </div>
+    <h1>Welcome to Epsilon Movies</h1>
+    <a href="/watch" class="btn-watch">Watch Now</a>
+
+    <div class="about-movies">
+        <h2>About Movies</h2>
+        <p>Movies are one of the greatest forms of entertainment, offering us an escape from reality while providing deep insights into life, culture, and human emotions. From the latest blockbusters to timeless classics, movies have always been an essential part of modern-day entertainment. Whether you're a fan of action, drama, comedy, or science fiction, movies offer something for everyone.</p>
+        <p>The Oscars, or the Academy Awards, is the most prestigious event in the film industry, recognizing excellence in cinematic achievements. Every year, the best movies, directors, actors, and writers are awarded the iconic gold statuette. Whether you're into award-winning films or indie gems, the Oscars celebrate all forms of creativity and artistry in film.</p>
+        <p>The world of cinema is vast and ever-evolving. From high-budget productions to low-budget masterpieces, we aim to bring you all the latest information about the film industry, including reviews, trailers, recommendations, and insights into the best movies to watch!</p>
+        <p>Stay tuned for upcoming movie releases, Oscar predictions, top-rated films, and much more in the exciting world of movies!</p>
     </div>
 </body>
 </html>
