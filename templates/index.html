@@ -15,12 +15,36 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
             color: #ff1e56;
+            opacity: 0;
+            animation: fadeUp 1.5s forwards 0.5s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn-watch {
@@ -33,15 +57,20 @@
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
+            opacity: 0;
+            animation: fadeUp 1.5s forwards 1s;
         }
 
         .btn-watch:hover {
             background-color: #e6003f;
+            transform: scale(1.1);
         }
 
         img {
             width: 150px;
             margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeUp 1.5s forwards 0.5s;
         }
     </style>
 </head>
