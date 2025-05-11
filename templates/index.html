@@ -173,62 +173,49 @@
 
     </style>
 </head>
+
+
+
+
 <body>
 
-    <!-- Header Section (Logo) -->
-    <header>
-        <a href="/">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Movies Logo"> <!-- Corrected path -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo">
+    <h1>Welcome to Epsilon Movies</h1>
+
+    <div class="section">
+        <h2>Trending Now</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=1" alt="Dark Future">
+                <p>Dark Future</p>
             </div>
-        </a>
-    </header>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <div>
-            <h1>Welcome to Epsilon Movies</h1>
-            <a href="/watch" class="btn-watch">Watch Now</a>
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=2" alt="Neon Streets">
+                <p>Neon Streets</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=3" alt="Cyber Chase">
+                <p>Cyber Chase</p>
+            </div>
         </div>
     </div>
 
-    <!-- Movie Categories Section -->
-    <div class="categories">
-        <div class="category-card">
-            <img src="your-category-image.jpg" alt="Action">
-            <h2>Action</h2>
+    <div class="section">
+        <h2>Top Picks for You</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=4" alt="Alien Protocol">
+                <p>Alien Protocol</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=5" alt="Quantum Heist">
+                <p>Quantum Heist</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://picsum.photos/150/220?random=6" alt="Omega Sector">
+                <p>Omega Sector</p>
+            </div>
         </div>
-        <div class="category-card">
-            <img src="your-category-image.jpg" alt="Comedy">
-            <h2>Comedy</h2>
-        </div>
-        <div class="category-card">
-            <img src="your-category-image.jpg" alt="Drama">
-            <h2>Drama</h2>
-        </div>
-        <div class="category-card">
-            <img src="your-category-image.jpg" alt="Featured">
-            <h2>Featured</h2>
-        </div>
-    </div>
-
-    <!-- Search Section -->
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search for Movies..." />
-    </div>
-
-    <!-- Latest Movies Section -->
-    <div class="latest-movies">
-        <div class="movie-card">
-            <img src="movie-poster-1.jpg" alt="Movie 1">
-        </div>
-        <div class="movie-card">
-            <img src="movie-poster-2.jpg" alt="Movie 2">
-        </div>
-        <div class="movie-card">
-            <img src="movie-poster-3.jpg" alt="Movie 3">
-        </div>
-        <!-- Add more movie cards here -->
     </div>
 
 </body>
