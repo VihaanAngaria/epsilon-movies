@@ -38,9 +38,17 @@
         .btn-watch:hover {
             background-color: #e6003f;
         }
+
+        img {
+            width: 150px;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
+    <!-- Logo Image -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo">
+
     <h1>Welcome to Epsilon Movies</h1>
     <a href="/watch" class="btn-watch">Watch Now</a>
 </body>
