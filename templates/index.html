@@ -1,102 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epsilon Movies</title>
-    <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #121212;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            transition: all 0.3s ease;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epsilon Movies</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Heading with Subtle Animation */
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #ff1e56;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
-        }
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
+    /* Animated Gradient Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #ff1e56, #1e90ff, #ff1e56, #1e90ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      z-index: -1;
+      opacity: 0.2;
+    }
 
-        /* Button Styling */
-        .btn-watch {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: white;
-            background-color: #ff1e56;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: 30px;
-        }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        .btn-watch:hover {
-            background-color: #e6003f;
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+    /* Logo */
+    .logo {
+      width: 150px;
+      margin-bottom: 30px;
+      animation: float 4s ease-in-out infinite;
+    }
 
-        /* Smooth Background Transition */
-        body {
-            background: #121212;
-            transition: background 1s ease-in-out;
-        }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
 
-        .btn-watch:hover {
-            background-color: #ff1e56;
-            color: #fff;
-        }
+    /* Heading */
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff1e56, #1e90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
 
-        /* Simple Floating Logo */
-        img {
-            width: 150px;
-            margin-bottom: 20px;
-            animation: floatLogo 3s ease-in-out infinite;
-        }
+    @keyframes textGlow {
+      from { text-shadow: 0 0 10px #ff1e56; }
+      to { text-shadow: 0 0 20px #1e90ff; }
+    }
 
-        @keyframes floatLogo {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
+    /* Watch Button */
+    .btn-watch {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: #fff;
+      background-color: #ff1e56;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #ff1e56;
+    }
 
-    </style>
+    .btn-watch:hover {
+      background-color: #1e90ff;
+      box-shadow: 0 0 20px #1e90ff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .btn-watch {
+        padding: 12px 24px;
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Logo -->
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo">
-    <!-- Heading -->
-    <h1>Welcome to Epsilon Movies</h1>
-    <!-- Watch Button -->
-    <a href="/watch" class="btn-watch">Watch Now</a>
+  <!-- Logo -->
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="Epsilon Logo" class="logo" />
+
+  <!-- Heading -->
+  <h1>Welcome to Epsilon Movies</h1>
+
+  <!-- Watch Button -->
+  <a href="/watch" class="btn-watch">Watch Now</a>
 </body>
 </html>
