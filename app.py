@@ -24,22 +24,23 @@ def home():
 
 @app.route('/watch')
 def watch():
-    return redirect("https://netfree2.cc/login")
+    return redirect("/sponsor")
 
 @app.route('/category/<category_name>')
 def category(category_name):
     movies = get_movies_by_category(category_name)
     return render_template('category.html', category_name=category_name, movies=movies)
 
-# @app.route('/sponsor')
-# def sponsor():
-#     # Redirect to sponsor (Shotify) link
-#     return redirect("https://shrtlk.click/81jy8")
 
-# @app.route('/afterSponsor')
-# def after_sponsor():
-#     # Redirect to NetMirror after sponsor
-#     return redirect("https://netfree2.cc/login")
+@app.route('/sponsor')
+def sponsor():
+    # Redirect to sponsor (Shotify) link
+    return redirect("https://shrinkme.ink/epsilonmovies")
+
+@app.route('/afterSponsor')
+def after_sponsor():
+    # Redirect to NetMirror after sponsor
+    return redirect("https://netfree2.cc/login")
 
 if __name__ == '__main__':
     app.run(debug=True)
